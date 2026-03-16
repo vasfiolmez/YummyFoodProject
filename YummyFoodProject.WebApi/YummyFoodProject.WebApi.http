@@ -1,0 +1,6 @@
+@YummyFoodProject.WebApi_HostAddress = http://localhost:5064
+
+GET {{YummyFoodProject.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
