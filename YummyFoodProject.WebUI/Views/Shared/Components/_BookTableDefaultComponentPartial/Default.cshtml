@@ -1,0 +1,51 @@
+﻿<section id="book-a-table" class="book-a-table section">
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Rezervasyon</h2>
+        <p><span>Hemen</span> <span class="description-title">Masanızı Ayırtın<br></span></p>
+    </div><div class="container">
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="col-lg-4 reservation-img" style="background-image: url(/webteması/assets/img/reservation.jpg);"></div>
+
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
+                <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+                    <div class="row gy-4">
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Adınız Soyadınız" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="E-posta Adresiniz" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Telefon Numaranız" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="date" name="date" class="form-control" id="date" placeholder="Tarih" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="time" class="form-control" name="time" id="time" placeholder="Saat" required="">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="number" class="form-control" name="people" id="people" placeholder="Kişi Sayısı" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Özel Notunuz (Varsa)"></textarea>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <div class="loading">Yükleniyor...</div>
+                        <div class="error-message">Hata! Mesaj gönderilemedi.</div>
+                        <div class="sent-message">Rezervasyon talebiniz gönderildi. Onaylamak için sizi en kısa sürede arayacağız veya e-posta göndereceğiz. Teşekkürler!</div>
+                        <button type="submit">Masa Ayırt</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</section>```

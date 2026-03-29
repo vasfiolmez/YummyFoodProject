@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\yummy-red-1.0.0\**" />
+    <Content Remove="wwwroot\yummy-red-1.0.0\**" />
+    <EmbeddedResource Remove="wwwroot\yummy-red-1.0.0\**" />
+    <None Remove="wwwroot\yummy-red-1.0.0\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\webtema\assets\.DS_Store" />
+    <None Include="wwwroot\webtema\assets\img\.DS_Store" />
+    <None Include="wwwroot\webtema\assets\vendor\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,40 @@
+﻿using AutoMapper;
+using YummyFoodProject.WebApi.Dtos.FeatureDtos;
+using YummyFoodProject.WebApi.Dtos.MessageDtos;
+using YummyFoodProject.WebApi.Dtos.ProductDtos;
+using YummyFoodProject.WebApi.Dtos.ServiceDtos;
+using YummyFoodProject.WebApi.Dtos.TestimonialDtos;
+using YummyFoodProject.WebApi.Entities;
+
+namespace YummyFoodProject.WebApi.Mapping
+{
+    public class GeneralMapping : Profile
+    {
+        public GeneralMapping()
+        {
+            CreateMap<Feature, ResultFeatureDto>().ReverseMap();
+            CreateMap<Feature, CreateFeatureDto>().ReverseMap();
+            CreateMap<Feature, UpdateFeatureDto>().ReverseMap();
+            CreateMap<Feature, GetByIdFeatureDto>().ReverseMap();
+
+            CreateMap<Message, CreateMessageDto>().ReverseMap();
+            CreateMap<Message, ResultMessageDto>().ReverseMap();
+            CreateMap<Message, UpdateMessageDto>().ReverseMap();
+            CreateMap<Message, GetByIdMessageDto>().ReverseMap();
+
+            CreateMap<Product, CreateProductDto>().ReverseMap();
+            CreateMap<Product, ResultProductDto>().ReverseMap();
+            CreateMap<Product, UpdateProductDto>().ReverseMap();
+            CreateMap<Product, ResultProductWithCategoryDto>().ForMember(x=>x.CategoryName,y=>y.MapFrom(z=>z.Category.CategoryName)).ReverseMap();
+
+            CreateMap<Service, ResultServiceDto>().ReverseMap();
+            CreateMap<Service, CreateServiceDto>().ReverseMap();
+            CreateMap<Service, UpdateServiceDto>().ReverseMap();
+
+           CreateMap<Testimonial,CreateTestimonialDto>().ReverseMap();
+           CreateMap<Testimonial,ResultTestimonialDto>().ReverseMap();
+           CreateMap<Testimonial,UpdateTestimonialDto>().ReverseMap();
+
+        }
+    }
+}
