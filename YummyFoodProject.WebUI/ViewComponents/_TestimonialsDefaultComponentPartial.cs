@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using YummyFoodProject.WebUI.Dtos.MessageDtos;
 using YummyFoodProject.WebUI.Dtos.TestimonialDtos;
 
 namespace YummyFoodProject.WebUI.ViewComponents
@@ -16,7 +17,7 @@ namespace YummyFoodProject.WebUI.ViewComponents
         public async Task< IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7052/api/Testimonials");
+            var responseMessage = await client.GetAsync("https://localhost:7052/api/Testimonial");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData =await responseMessage.Content.ReadAsStringAsync();

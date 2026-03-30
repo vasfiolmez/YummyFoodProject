@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using YummyFoodProject.WebApi.Dtos.ChefDtos;
 using YummyFoodProject.WebApi.Dtos.FeatureDtos;
+using YummyFoodProject.WebApi.Dtos.FoodEventsDtos;
 using YummyFoodProject.WebApi.Dtos.MessageDtos;
 using YummyFoodProject.WebApi.Dtos.ProductDtos;
 using YummyFoodProject.WebApi.Dtos.ServiceDtos;
@@ -21,6 +23,7 @@ namespace YummyFoodProject.WebApi.Mapping
             CreateMap<Message, ResultMessageDto>().ReverseMap();
             CreateMap<Message, UpdateMessageDto>().ReverseMap();
             CreateMap<Message, GetByIdMessageDto>().ReverseMap();
+            CreateMap<Message, ResultMessageByIsReadFalse>().ReverseMap();
 
             CreateMap<Product, CreateProductDto>().ReverseMap();
             CreateMap<Product, ResultProductDto>().ReverseMap();
@@ -34,6 +37,17 @@ namespace YummyFoodProject.WebApi.Mapping
            CreateMap<Testimonial,CreateTestimonialDto>().ReverseMap();
            CreateMap<Testimonial,ResultTestimonialDto>().ReverseMap();
            CreateMap<Testimonial,UpdateTestimonialDto>().ReverseMap();
+
+            CreateMap<FoodEvent, ResultFoodEventsDto>().ReverseMap();
+            CreateMap<FoodEvent, UpdateFoodEventsDto>().ReverseMap();
+            CreateMap<FoodEvent, GetFoodEventsById>().ReverseMap();
+            CreateMap<FoodEvent, CreateFoodEventsDto>().ReverseMap();
+
+            CreateMap<Chef, ResultChefDto>().ReverseMap();
+            CreateMap<Chef, UpdateChefDto>().ReverseMap();
+            CreateMap<Chef, GetChefByIdDto>().ReverseMap();
+            CreateMap<Chef, CreateChefDto>().ReverseMap();
+
 
         }
     }

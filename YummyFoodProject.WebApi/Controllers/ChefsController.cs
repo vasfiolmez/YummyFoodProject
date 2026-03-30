@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YummyFoodProject.WebApi.Context;
+using YummyFoodProject.WebApi.Dtos.ChefDtos;
 using YummyFoodProject.WebApi.Entities;
 
 namespace YummyFoodProject.WebApi.Controllers
@@ -10,49 +12,27 @@ namespace YummyFoodProject.WebApi.Controllers
     public class ChefsController : ControllerBase
     {
         private readonly YummyFoodContext _context;
+        private readonly IMapper _mapper;
 
-        public ChefsController(YummyFoodContext context)
+        public ChefsController(IMapper mapper, YummyFoodContext context)
         {
+            _mapper = mapper;
             _context = context;
         }
+
         [HttpGet]
-        public IActionResult ChefList()
+        public IActionResult ChefList() 
         {
             var values = _context.Chefs.ToList();
-            return Ok(values);
+            var results = _mapper.Map<List<ResultChefDto>>(values);
+            return Ok(results);
         }
-        [HttpGet("GetChef")]
-        public IActionResult GetChef(int id)
+        [HttpGet("GetChefById")]
+        public IActionResult GetChefById(int id)
         {
-            var value = _context.Chefs.Find(id);
-            return Ok(value);
-        }
-        [HttpPost]
-        public IActionResult CreateChef(Chef chef)
-        {
-            _context.Chefs.Add(chef);
-            _context.SaveChanges();
-            return Ok("Şef ekleme işlemi başarılı");
-        }
-        [HttpDelete]
-        public IActionResult DeleteChef(int id)
-        {
-            var chef = _context.Chefs.Find(id);
-            if (chef == null)
-            {
-                return NotFound("Şef bulunamadı");
-            }
-            _context.Chefs.Remove(chef);
-            _context.SaveChanges();
-            return Ok("Şef silme işlemi başarılı");
-        }
-
-        [HttpPut]
-        public IActionResult UpdateChef(Chef chef)
-        {
-            _context.Chefs.Update(chef);
-            _context.SaveChanges();
-            return Ok("Şef güncelleme işlemi başarılı");
+            var value = _context.Chefs.FirstOrDefault(x => x.ChefId == id);
+            var result = _mapper.Map<GetChefByIdDto>(value);
+            return Ok(result);
         }
     }
 }

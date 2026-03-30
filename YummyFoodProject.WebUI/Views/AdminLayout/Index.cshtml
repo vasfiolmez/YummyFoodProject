@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_AdminHeadComponentPartial")
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+
+            @await Component.InvokeAsync("_AdminNavbarComponentPartial")
+
+            @await Component.InvokeAsync("_AdminSidebarComponentPartial")
+
+
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+                       @RenderBody()
+                    </div>
+                </section>
+            </div>
+
+            @await Component.InvokeAsync("_AdminFooterComponentPartial")
+        </div>
+    </div>
+
+    <script src="/admintemplate/assets/js/app.min.js"></script>
+
+ @RenderSection("Scripts", required: false)  
+
+    <script src="/admintemplate/assets/js/scripts.js"></script>
+    <script src="/admintemplate/assets/js/custom.js"></script>
+</body>
+</html>

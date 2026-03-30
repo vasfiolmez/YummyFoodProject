@@ -73,6 +73,14 @@ namespace YummyFoodProject.WebApi.Controllers
             return Ok("Mesaj başarılı bir şekilde silindi.");
         }
 
+        [HttpGet("MessageListByIsReadFalse")]
+        public IActionResult MessageListByIsReadFalse()
+        {
+            var values = _context.Messages.Where(m => m.IsRead == false).ToList();
+            var messagesDto = _mapper.Map<List<ResultMessageByIsReadFalse>>(values);
+            return Ok(messagesDto);
+        }
+
     }
 
 }
