@@ -1,0 +1,44 @@
+﻿@model UpdateCategoryDto
+@{
+    ViewData["Title"] = "Kategori Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row mt-4">
+    <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        <div class="card card-warning">
+            <div class="card-header">
+                <h4><i class="fas fa-edit mr-2"></i> Kategori Güncelle</h4>
+            </div>
+
+            <div class="card-body">
+                <form method="post" action="/Category/UpdateCategory">
+
+                    <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+
+                    <div class="form-group">
+                        <label>Kategori Adı</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" name="CategoryName" value="@Model.CategoryName" required placeholder="Kategori adını giriniz..." autocomplete="off">
+                        </div>
+                        <small class="form-text text-muted">Kategorinin yeni adını girerek güncelleyebilirsiniz.</small>
+                    </div>
+
+                    <div class="form-group mb-0 text-right">
+                        <a href="/Category/CategoryList" class="btn btn-secondary mr-2">
+                            <i class="fas fa-times"></i> İptal
+                        </a>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fas fa-sync-alt"></i> Değişiklikleri Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

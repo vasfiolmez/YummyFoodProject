@@ -1,0 +1,42 @@
+﻿@model List<ResultNotificationsDto>
+<li class="dropdown dropdown-list-toggle">
+    <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg">
+        <i data-feather="bell" class="bell"></i>
+        @if (Model != null && Model.Count > 0)
+        {
+            @* Kırmızı bildirim sayısı balonu *@
+            <span class="badge headerBadge1" style="background-color: #fc544b;">@Model.Count</span>
+        }
+    </a>
+    <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+        <div class="dropdown-header">
+            Bildirimler (@(Model?.Count ?? 0))
+            <div class="float-right"><a href="#">Tümünü Okundu İşaretle</a></div>
+        </div>
+        <div class="dropdown-list-content dropdown-list-icons">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    @* Okunmamış bildirimi belli eden hafif gri arkaplan *@
+                    <a href="/Admin/Notification/Detail/@item.NotificationId" class="dropdown-item" style="background-color: #f8f9fa; border-bottom: 1px solid #edf1f2;">
+                        <span class="dropdown-item-icon" style="background: none; box-shadow: none;">
+                            <i class="@item.IconUrl" style="font-size: 20px;"></i>
+                        </span>
+                        <span class="dropdown-item-desc" style="font-weight: 500; color: #34395e;">
+                            @item.Description
+                            <span class="time text-primary">@item.Date.ToString("dd MMM HH:mm")</span>
+                        </span>
+                    </a>
+                }
+            }
+            else
+            {
+                <div class="text-center p-3 text-muted">Yeni bildiriminiz yok.</div>
+            }
+        </div>
+        <div class="dropdown-footer text-center">
+            <a href="/Admin/Notification/Index">Tüm Bildirimleri Gör <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+</li>

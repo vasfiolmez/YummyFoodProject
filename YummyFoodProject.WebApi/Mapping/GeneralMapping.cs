@@ -3,6 +3,7 @@ using YummyFoodProject.WebApi.Dtos.ChefDtos;
 using YummyFoodProject.WebApi.Dtos.FeatureDtos;
 using YummyFoodProject.WebApi.Dtos.FoodEventsDtos;
 using YummyFoodProject.WebApi.Dtos.MessageDtos;
+using YummyFoodProject.WebApi.Dtos.NotificationsDtos;
 using YummyFoodProject.WebApi.Dtos.ProductDtos;
 using YummyFoodProject.WebApi.Dtos.ServiceDtos;
 using YummyFoodProject.WebApi.Dtos.TestimonialDtos;
@@ -28,15 +29,15 @@ namespace YummyFoodProject.WebApi.Mapping
             CreateMap<Product, CreateProductDto>().ReverseMap();
             CreateMap<Product, ResultProductDto>().ReverseMap();
             CreateMap<Product, UpdateProductDto>().ReverseMap();
-            CreateMap<Product, ResultProductWithCategoryDto>().ForMember(x=>x.CategoryName,y=>y.MapFrom(z=>z.Category.CategoryName)).ReverseMap();
+            CreateMap<Product, ResultProductWithCategoryDto>().ForMember(x => x.CategoryName, y => y.MapFrom(z => z.Category.CategoryName)).ReverseMap();
 
             CreateMap<Service, ResultServiceDto>().ReverseMap();
             CreateMap<Service, CreateServiceDto>().ReverseMap();
             CreateMap<Service, UpdateServiceDto>().ReverseMap();
 
-           CreateMap<Testimonial,CreateTestimonialDto>().ReverseMap();
-           CreateMap<Testimonial,ResultTestimonialDto>().ReverseMap();
-           CreateMap<Testimonial,UpdateTestimonialDto>().ReverseMap();
+            CreateMap<Testimonial, CreateTestimonialDto>().ReverseMap();
+            CreateMap<Testimonial, ResultTestimonialDto>().ReverseMap();
+            CreateMap<Testimonial, UpdateTestimonialDto>().ReverseMap();
 
             CreateMap<FoodEvent, ResultFoodEventsDto>().ReverseMap();
             CreateMap<FoodEvent, UpdateFoodEventsDto>().ReverseMap();
@@ -48,7 +49,10 @@ namespace YummyFoodProject.WebApi.Mapping
             CreateMap<Chef, GetChefByIdDto>().ReverseMap();
             CreateMap<Chef, CreateChefDto>().ReverseMap();
 
-
+            CreateMap<Notification, CreateNotificationDto>().ReverseMap();
+            CreateMap<Notification, ResultNotificationDto>().ReverseMap();
+            CreateMap<Notification, UpdateNotificationDto>().ReverseMap();
+            CreateMap<Notification, GetNotificationByIdDto>().ReverseMap();
         }
     }
 }

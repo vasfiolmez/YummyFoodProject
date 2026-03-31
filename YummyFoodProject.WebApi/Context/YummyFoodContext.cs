@@ -20,6 +20,7 @@ namespace YummyFoodProject.WebApi.Context
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<FoodEvent> FoodEvents { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
     }
 }
